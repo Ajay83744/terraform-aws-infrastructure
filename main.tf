@@ -30,3 +30,11 @@ resource "aws_subnet" "public_subnet" {
     Name = "Public-Subnet"
   }
 }
+# Create Internet Gateway
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "Terraform-IGW"
+  }
+}
